@@ -1,14 +1,19 @@
-import { normalizePost } from "@/utils/Normalize";
+import { normalizePost } from "../../../utils/Normalize";
 import { fetchAPI } from "../../api";
 
-type Params ={
+type Params = {
   categoryName: string | undefined | string[];
   offset: null | number;
   perPage: number;
-}
+};
 
-export async function getAllPostsByCategory({categoryName, offset, perPage}: Params){
-  const data = await fetchAPI(`
+export async function getAllPostsByCategory({
+  categoryName,
+  offset,
+  perPage,
+}: Params) {
+  const data = await fetchAPI(
+    `
   query NewQuery($categoryName: String, $offset: Int, $perPage: Int) {
     posts(where: {categoryName: $categoryName , offsetPagination: {offset: $offset, size: $perPage}} ) {
       edges{
@@ -43,15 +48,18 @@ export async function getAllPostsByCategory({categoryName, offset, perPage}: Par
       }
     }
   }
-  `,{
-    variables: {
-      categoryName: categoryName,
-      offset,
-      perPage,
-
+  `,
+    {
+      variables: {
+        categoryName: categoryName,
+        offset,
+        perPage,
+      },
     }
-  })
-  const posts = data?.posts?.edges?.map(({node}: any)=> {return {node: normalizePost(node)}})
-  data.posts.edges = posts
-  return data ?? {} 
+  );
+  const posts = data?.posts?.edges?.map(({ node }: any) => {
+    return { node: normalizePost(node) };
+  });
+  data.posts.edges = posts;
+  return data ?? {};
 }

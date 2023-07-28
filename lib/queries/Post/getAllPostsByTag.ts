@@ -1,14 +1,15 @@
-import { normalizePost } from "@/utils/Normalize";
+import { normalizePost } from "../../../utils/Normalize";
 import { fetchAPI } from "../../api";
 
-type Params ={
+type Params = {
   tagName: string | undefined | string[];
   offset: null | number;
   perPage: number;
-}
+};
 
-export async function getAllPostsByTag({tagName, offset, perPage}: Params){
-  const data = await fetchAPI(`
+export async function getAllPostsByTag({ tagName, offset, perPage }: Params) {
+  const data = await fetchAPI(
+    `
   query NewQuery($tag: String, $offset: Int, $perPage: Int) {
     posts(where: {tag: $tag , offsetPagination: {offset: $offset, size: $perPage}} ) {
       edges{
@@ -54,14 +55,17 @@ export async function getAllPostsByTag({tagName, offset, perPage}: Params){
       }
     }
   }
-  `,{
-    variables: {
-      tag: tagName,
-      offset,
-      perPage,
-
+  `,
+    {
+      variables: {
+        tag: tagName,
+        offset,
+        perPage,
+      },
     }
-  })
-  data?.posts?.edges?.map(({node}: any)=> {return {node: normalizePost(node)}})
-  return data ?? {} 
+  );
+  data?.posts?.edges?.map(({ node }: any) => {
+    return { node: normalizePost(node) };
+  });
+  return data ?? {};
 }

@@ -1,8 +1,11 @@
-import { normalizePost } from "@/utils/Normalize"
-import { fetchAPI } from "../../api"
+import { normalizePost } from "../../../utils/Normalize";
+import { fetchAPI } from "../../api";
 
-export async function getPreviewPost(id: number | undefined | string | string[], idType = 'DATABASE_ID', authToken='') {
-  
+export async function getPreviewPost(
+  id: number | undefined | string | string[],
+  idType = "DATABASE_ID",
+  authToken = ""
+) {
   // const data = {}
   const data = await fetchAPI(
     `
@@ -63,7 +66,7 @@ export async function getPreviewPost(id: number | undefined | string | string[],
     }`,
     {},
     authToken
-  )
-  data.post = normalizePost(data?.post)
-  return data
+  );
+  data.post = normalizePost(data?.post);
+  return data;
 }

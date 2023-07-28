@@ -1,0 +1,241 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--bg-secondary);
+  color: var(--text-third);
+  max-width: 1600px;
+  margin: 0 auto 1.5rem auto;
+  justify-content: center;
+  padding: 4rem 3.54167vw;
+}
+.postContainer {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+.coverWrapper {
+  position: relative;
+  flex: 1;
+  aspect-ratio: 1;
+  overflow: hidden;
+  display: block;
+}
+.postsGrid{
+  display: grid;
+  row-gap: 12px;
+  grid-template-areas: 
+  "a b"
+  "a c";
+  grid-template-columns: 2fr 1fr;
+  padding: 5rem 0;
+}
+.post1{
+  grid-area: a;
+  position: relative;
+  padding-right: 3vw;
+}
+.post1::after{
+  content: "";
+  display: block;
+  height: 95%;
+  width: 1px;
+  background-color: #b1b1b1;
+  position: absolute;
+  right: 0;
+  top: 2.5%;
+}
+.post2{
+  grid-area: b;
+  padding-left: 2.5vw;
+  align-self: flex-start;
+  margin-top: 3%;
+}
+.post3{
+  grid-area: c;
+  padding-left: 2.5vw;
+  align-self: flex-end;
+  margin-bottom: 3%;
+}
+.post2 h3, .post3 h3{
+  font-size: 27px;
+  margin-top: -10px;
+}
+
+.postContent {
+  flex: 1;
+  width: 100%;
+}
+.postAuthor {
+  margin: 1rem 0 1rem 0;
+  color: var(--bg-primary);
+  text-transform: capitalize;
+  font-size: 1rem;
+  display: block;
+  word-spacing: 6px;
+  font-weight: bold;
+}
+.postTitle {
+  font-size: 50px;
+  margin-bottom: 10px;
+  transition: opacity 0.4s ease-in-out;
+  cursor: pointer;
+  text-transform: capitalize;
+  font-family: "Inter", serif;
+  font-weight: 600;
+  line-height: 1.2;
+  color: #004c66;
+}
+
+.postTitle:hover {
+  opacity: 0.7;
+}
+.readMore {
+  margin-top: 1.5rem;
+  color: #004c66;
+}
+.cover {
+  object-fit: cover;
+  opacity: 0.3;
+  border-radius: 25px;
+  aspect-ratio: 1;
+}
+.loading {
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 25px;
+  background-color: rgb(209 213 219 / .37);
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+@keyframes pulse {
+  50% {
+    opacity: 0.5;
+  }
+}
+.showUp {
+  animation: showUp 0.7s forwards;
+}
+@keyframes showUp {
+  0% {
+    opacity: 0.2;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.categoryTime {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15%;
+  margin-bottom: 12px;
+  align-items: center;
+}
+.categoryTime > * {
+  flex: 1;
+}
+.time, .date {
+  font-size: 1rem;
+  color: #878787;
+}
+.time{
+  word-spacing: 1px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.date{
+  white-space: nowrap;
+  text-transform: capitalize;
+}
+
+@media (max-width: 767px) {
+  .container{
+    padding: 4rem 9.6vw;
+  }
+  .postContainer {
+    flex-direction: column;
+    gap: 0;
+    align-items: flex-start;
+    justify-content: center;
+    padding-right: 0;
+    padding-left: 0;
+  }
+  .coverWrapper {
+    width: 100%;
+  }
+  .categoryTime {
+    gap: 1rem;
+    margin-top: 2rem;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  .categoryTime > * {
+    flex: unset;
+  }
+  .postAuthor{
+    margin: 0;
+  }
+  .readMore {
+    font-size: 1rem;
+    line-height: 1;
+  }
+}
+.icon {
+  display: inline-block;
+  fill: #004c66;
+  color: #004c66;
+}
+.bullet{
+  width: 20px !important;
+  height: 20px !important;
+  border: 1px solid #004c66 !important;
+  background-color: transparent !important;
+  display: flex !important;
+  border-radius: 50%;
+  opacity: 1 !important;
+  margin: unset !important;
+  justify-content: center;
+  align-items: center;
+}
+.activeBullet .active{
+  width: 12px;
+  height: 12px;
+  background-color: var(--bg-primary);
+  border-radius: 50%; 
+}
+
+@media (max-width: 1400px) {
+  .postTitle{
+    font-size: 3.1vw;
+  }
+  
+  .post2 h3, .post3 h3{
+    font-size: 1.8vw;
+  } 
+  .post2, .post3{
+    gap: 1vw;
+    padding-left: 2vw;
+  }
+}
+@media (max-width: 1400px) and (min-width: 767px){
+  .tag, .time, .date, .postAuthor{
+    font-size: 1.5vw;
+  }
+}
+@media (max-width: 767px) {
+  .post1::after {
+    content: none;
+  }
+  .post2 , .post3{
+    display: none !important;
+  }
+  .postContent{
+    flex: unset;
+  }
+  .postsGrid{
+    grid-template-columns: 1fr;
+    padding: 3rem 0;
+  }
+  .postTitle{
+    font-size: 2rem;
+  }
+}

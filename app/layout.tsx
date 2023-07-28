@@ -1,5 +1,4 @@
 import "./globals.css";
-import Navbar from "../components/Navbar";
 
 export default function RootLayout({
   children,
@@ -15,7 +14,7 @@ export default function RootLayout({
       <head />
 
       <body className="bg-neutral-900 text-white">
-        <Navbar />
+        {/* <Navbar /> */}
         <div
           id="page-top-spacer"
           className="h-12 bg-gradient-to-t from-transparent to-neutral-800"

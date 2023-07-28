@@ -1,5 +1,5 @@
 import { fetchAPI } from "../../api";
-import { normalizePost } from "@/utils/Normalize";
+import { normalizePost } from "../../../utils/Normalize";
 
 type parameters = {
   search: string | string[] | undefined;
@@ -7,8 +7,13 @@ type parameters = {
   offset: number | null;
 };
 
-export async function getAllPostsBySearch({ search='' ,perPage, offset }: parameters) {
-  const data = await fetchAPI(`
+export async function getAllPostsBySearch({
+  search = "",
+  perPage,
+  offset,
+}: parameters) {
+  const data = await fetchAPI(
+    `
   
   query POSTS_SEARCHED($search: String, $offset: Int, $perPage: Int) {
     posts(
@@ -56,15 +61,16 @@ export async function getAllPostsBySearch({ search='' ,perPage, offset }: parame
     }
   }
   `,
-  {
-    variables: {
-      search: search,
-      perPage: perPage,
-      offset: offset,
-    },
+    {
+      variables: {
+        search: search,
+        perPage: perPage,
+        offset: offset,
+      },
+    }
+  );
+  data?.posts?.edges?.forEach(({ node }: any) => {
+    normalizePost(node);
   });
-  data?.posts?.edges?.forEach(({node}: any) => {
-    normalizePost(node)
-  });
-  return data
+  return data;
 }

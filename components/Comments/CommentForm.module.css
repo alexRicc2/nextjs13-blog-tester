@@ -1,0 +1,89 @@
+.input{
+  color: #333;
+  padding: 20px 0 10px 0;
+  outline: none;
+  border-bottom: 1px solid #e1d1d1;
+  font-size: 1.1rem;
+}
+.input:focus{
+  border-bottom: 1px solid var(--bg-primary);
+}
+.submit{
+  padding: 10px;
+  background-color: #fff;
+  color: #333;
+  align-self: flex-start;
+  border-radius: 5px;
+}
+.formWrapper{
+  margin: 4rem 0;
+}
+.title {
+  font-size: 1.5rem;
+  color: var(--text-primary);
+}
+.form{
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  margin: 2rem 0;
+}
+.doubleInput{
+  display: flex;
+  gap: 1rem;
+}
+.doubleInput input:first-of-type{
+  flex: 2;
+}
+.doubleInput input:nth-of-type(2){
+  flex: 3;
+}
+.checkboxContainer{
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+}
+.checkbox{
+  height: 20px;
+  width: 20px;
+}
+.label{
+  font-size: .9rem;
+  letter-spacing: .015rem;
+  line-height: 1.2;
+}
+.feedback{
+  color: var(--text-primary);
+  font-size: .9rem;
+  line-height: 1.2;
+  letter-spacing: 0.015rem;
+  margin-top: -1rem;
+  text-transform: uppercase;
+}
+.commentList{
+  padding-top: 2rem;
+}
+.commentCard{
+  margin: 1.5rem 0;
+  padding: 1.5rem;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+.commentCount{
+  text-transform: uppercase;
+  letter-spacing: .1rem;
+}
+.loadMore{
+  padding: 10px 20px;
+  border-radius: 10px;
+  background-color: var(--bg-primary);
+  color: var(--text-secondary);
+}
+.content{
+  line-height: 1.3;
+  letter-spacing: .015rem;
+}
+@media (max-width: 767px){
+  .doubleInput{
+    flex-direction: column;
+  }
+}

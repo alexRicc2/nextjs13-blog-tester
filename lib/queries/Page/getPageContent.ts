@@ -1,6 +1,6 @@
 import { fetchAPI } from "../../api";
 import { PostFields } from "../../Fragments/PostFields";
-import { normalizePost } from "@/utils/Normalize";
+import { normalizePost } from "../../../utils/Normalize";
 export async function getPageContent() {
   const data = await fetchAPI(/* GraphQL */ `
     ${PostFields}
@@ -204,14 +204,18 @@ export async function getPageContent() {
     return sectionToReturn;
   };
 
-  const section6data = pageContent.section6
+  const section6data = pageContent.section6;
 
   const section1 = getSelectedPosts(pageContent.section1);
   const section2 = getSelectedPosts(pageContent.section2);
   const section3 = getSelectedPosts(pageContent.section3);
   const section4 = getSelectedPosts(pageContent.section4);
   const section5 = getSelectedPosts(pageContent.section5);
-  const section6 = [section6data?.category1, section6data?.category2, section6data?.category3]
+  const section6 = [
+    section6data?.category1,
+    section6data?.category2,
+    section6data?.category3,
+  ];
   const pageContentData = {
     section1,
     section2,

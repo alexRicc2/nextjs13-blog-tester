@@ -1,0 +1,27 @@
+.next{
+  right: 3.54167vw;
+}
+.prev{
+  left: 3.54167vw;
+  transform: rotate(180deg);
+}
+.disabled{
+  opacity: .6;
+  cursor: unset;
+}
+.next, .prev{
+  position: absolute;
+  z-index: 1;
+  display: flex;
+  height: 62px;
+  width: 62px;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #004c66;
+  border-radius: 50%;
+}
+@media (max-width: 767px){
+  .next, .prev{
+    display: none;
+  }
+}

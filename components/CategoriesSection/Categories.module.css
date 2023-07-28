@@ -1,0 +1,70 @@
+.grid{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3vw;
+  padding-bottom: 4rem;
+}
+.categoryTitle{
+  font-size: 2rem;
+  color: #004C66;
+  font-weight: 500;
+  margin: 2.5rem 0;
+  position: relative;
+  min-height: 4rem;
+}
+.categoryTitle::after, .categoryPosts > *::after{
+  position: absolute;
+  content: '';
+  width: 30%;
+  min-width: 60px;
+  height: 1px;
+  background-color: var(--bg-primary);
+  bottom: -10px;
+  left: 0;
+}
+.categoryPosts{
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+.categoryPosts > *{
+  position: relative;
+}
+.postTitle{
+  font-size: 1.6rem;
+  padding: .5rem 0;
+  font-weight: 500;
+  color: #004C66;
+  line-height: 1.2;
+  transition: opacity .5s ease-in-out;
+}
+.postTitle:hover{
+  opacity: .7;
+}
+@media (max-width: 1180px) and (min-width: 880px) {
+  .categoryTitle{
+    font-size: 1.4rem;
+  }
+}
+@media (max-width: 960px) and (min-width: 880px) {
+  .postTitle{
+    font-size: 1.4rem;
+  }
+}
+@media (max-width: 880px){
+  .grid{
+    display: flex;
+    flex-direction: column;
+  }
+  .categoryTitle{
+    min-height: unset;
+    word-break: break-all;
+  }
+  .postTitle{
+    display: none;
+  }
+  .categoryTitle::after{
+    display: none;
+  }
+  
+}

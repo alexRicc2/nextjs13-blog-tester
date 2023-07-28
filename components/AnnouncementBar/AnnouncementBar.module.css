@@ -1,0 +1,25 @@
+.root, .content{
+  flex: 1;
+  text-align: center;
+  background-color: var(--bg-primary);
+  color: var(--text-secondary);
+  height: var(--ANNOUNCEMENTBAR-HEIGHT);
+  font-size: .8rem;
+  display: flex;
+  align-items: center;
+  /* word-spacing: 6px; */
+  transition: .4s background-color ease-in-out, .4s color ease-in-out;
+  /* text-transform: uppercase; */
+}
+.root:hover, .content:hover{
+  background-color: var(--bg-secondary);
+  color: var(--text-third);
+}
+.root a, .content a {
+  text-align: center;
+  flex: 1;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

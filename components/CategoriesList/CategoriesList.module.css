@@ -1,0 +1,28 @@
+.categoriesContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+@media (max-width: 600px) {
+  .categoriesContainer {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}
+.categoriesList {
+  display: flex;
+  text-transform: capitalize;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+.categoryLink {
+  border: 1px solid var(--text-primary);
+  color: var(--text-primary);
+  padding: 2px 5px;
+  border-radius: 5px;
+}
+.categoryLink:focus {
+  background-color: var(--text-primary);
+  color: var(--bg-primary);
+  font-weight: bold;
+}

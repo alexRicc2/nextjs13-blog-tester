@@ -1,5 +1,5 @@
 import { fetchAPI } from "../../api";
-import { normalizePost } from "@/utils/Normalize";
+import { normalizePost } from "../../../utils/Normalize";
 
 export async function getAllPostsTalkOfTown() {
   const data = await fetchAPI(
@@ -61,11 +61,12 @@ export async function getAllPostsTalkOfTown() {
   const shuffledPosts = posts.sort(() => Math.random() - 0.5);
 
   // Sort the shuffled posts by date in descending order
-  const sortedPosts = shuffledPosts.slice(1,5).sort(
-    (a: any, b: any) =>
-      new Date(b.node.date).getTime() - new Date(a.node.date).getTime()
-  );
-
+  const sortedPosts = shuffledPosts
+    .slice(1, 5)
+    .sort(
+      (a: any, b: any) =>
+        new Date(b.node.date).getTime() - new Date(a.node.date).getTime()
+    );
 
   return { ...data, posts: { edges: shuffledPosts } };
 }

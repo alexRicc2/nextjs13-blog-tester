@@ -1,4 +1,4 @@
-import { calculateReadingTime } from "@/utils/calculateReadingTime";
+import { calculateReadingTime } from "../../../utils/calculateReadingTime";
 import { fetchAPI } from "../../api";
 
 export async function getPostBySlug(slug: string) {

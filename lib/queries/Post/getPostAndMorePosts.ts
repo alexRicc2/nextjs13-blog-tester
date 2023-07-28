@@ -1,20 +1,22 @@
 import { fetchAPI } from "../../api";
-import { normalizePost } from "@/utils/Normalize";
+import { normalizePost } from "../../../utils/Normalize";
 
-export async function getPostTest(slug: string | undefined | string[]){
-  const data = await fetchAPI(`query PostBySlug($id: ID!, $idType: PostIdType!){
+export async function getPostTest(slug: string | undefined | string[]) {
+  const data = await fetchAPI(
+    `query PostBySlug($id: ID!, $idType: PostIdType!){
     post(id: $id, idType: $idType){
       title
     } 
   }`,
-  {
-    variables: {
-      id: slug,
-      idType: "SLUG",
-    },
-  })
+    {
+      variables: {
+        id: slug,
+        idType: "SLUG",
+      },
+    }
+  );
 
-  return data
+  return data;
 }
 
 export async function getPostAndMorePosts(

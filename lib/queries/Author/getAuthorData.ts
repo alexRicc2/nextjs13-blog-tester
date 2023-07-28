@@ -1,4 +1,4 @@
-import { normalizePost } from "@/utils/Normalize";
+import { normalizePost } from "../../../utils/Normalize";
 import { fetchAPI } from "../../api";
 
 export async function getAuthorData(id: string | string[] | undefined = "") {

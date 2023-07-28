@@ -1,0 +1,148 @@
+.card {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.primary {
+  color: var(--text-secondary);
+}
+.secondary {
+  color: var(--text-third);
+}
+.post__title {
+  font-size: 1.6rem;
+  text-transform: capitalize;
+  font-family: "Inter", serif;
+  transition: 0.5s opacity ease-in-out;
+  margin-bottom: 1.8rem;
+  font-weight: 500;
+  line-height: 1.2;
+}
+.secondary .post__title {
+  color: #004c66;
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+.post__title:hover {
+  opacity: 0.7;
+}
+.author {
+  font-weight: bold;
+  color: var(--text-primary);
+}
+
+.secondary .buttonLine {
+  margin-top: 1rem;
+  color: #004c66;
+}
+.categoryTime {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 6px;
+  margin-bottom: 6px;
+  align-items: center;
+  margin-top: 1rem;
+  min-height: 24px;
+  margin-bottom: 1rem;
+}
+.time {
+  text-transform: uppercase;
+  word-spacing: 3px;
+  font-size: 14px;
+}
+.coverWrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1;
+  overflow: hidden;
+  display: block;
+}
+.cover {
+  object-fit: cover;
+  opacity: 0.1;
+  border-radius: 25px;
+  aspect-ratio: 1;
+  width: 100%;
+}
+.loading {
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 25px;
+  background-color: rgba(209, 213, 219, 0.37);
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+@keyframes pulse {
+  50% {
+    opacity: 0.5;
+  }
+}
+.tag {
+  font-weight: 500;
+  font-size: 12px;
+}
+.show {
+  animation: showUp 0.7s forwards;
+}
+@keyframes showUp {
+  0% {
+    opacity: 0.1;
+  }
+  20% {
+    opacity: 0.1;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.post__content {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+.post__excerpt {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3; /* number of lines to show */
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+  line-height: 1.2;
+}
+.buttonLine,
+.date {
+  font-size: 14px;
+  line-height: 1;
+}
+
+@media (max-width: 980px) and (min-width: 767px) {
+  .post__title {
+    font-size: 2vw;
+    margin-bottom: 0.6rem;
+  }
+  .tag, .time, .date, .buttonLine{
+    font-size: 1.3vw;
+  }
+  .post__excerpt {
+    font-size: 0.8rem;
+  }
+}
+@media (max-width: 767px) {
+  .categoryTime {
+    gap: 1rem;
+    margin-top: 1.5rem;
+    align-items: flex-start;
+  }
+}
+.icon {
+  display: inline-block;
+}
+.buttonAndDate {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  align-items: flex-end;
+  flex: 1;
+  flex-wrap: wrap;
+}

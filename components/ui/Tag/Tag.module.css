@@ -1,0 +1,15 @@
+.tag{
+ padding: 5px 0px;
+ color: var(--text-primary);
+ transition: opacity .4s ease-in-out;
+ text-transform: uppercase;
+ /* word-spacing: 6px; */
+ font-size: 1rem;
+ font-weight: bold;
+}
+.tag:hover{
+  opacity: .7;
+}
+.primary{
+  color: var(--bg-secondary);
+}

@@ -1,0 +1,49 @@
+.back {
+  position: relative;
+  overflow: hidden;
+  text-transform: uppercase;
+  line-height: 1;
+  position: relative;
+  display: inline-block;
+  font-size: 1rem;
+  /* padding-bottom: 0.46875vw; */
+  
+}
+/* .line {
+  position: absolute;
+  bottom: 1px;
+  left: 0;
+  width: 100%;
+  height: 0.05208vw;
+  background-color: var(--bg-secondary);
+} */
+/* .line.secondary, .secondary.line::before{
+  background-color: var(--text-third);
+}
+.line::before {
+  content: "";
+  position: absolute;
+  bottom: 1px;
+  left: -250%;
+  width: 100%;
+  height: 0.05208vw;
+  background-color: #004C66;
+} */
+/* @keyframes moveLine {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translate(250%);
+  }
+} */
+
+/* .hovered {
+  animation: moveLine 1.2s;
+} */
+@media (max-width: 767px){
+  .back{
+    font-size: 1rem;
+    line-height: 1;
+  }
+}

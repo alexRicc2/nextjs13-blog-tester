@@ -1,5 +1,5 @@
 import { fetchAPI } from "../../api";
-import { normalizePost } from "@/utils/Normalize";
+import { normalizePost } from "../../../utils/Normalize";
 
 export async function getLatestUpdatedsPosts() {
   const data = await fetchAPI(/* GraphQL */ `

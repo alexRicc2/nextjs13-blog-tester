@@ -1,0 +1,25 @@
+.root {
+  background-color: var(--bg-primary);
+}
+.header {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+  color: var(--text-secondary);
+}
+.title {
+  margin-bottom: 3rem;
+  font-size: 5rem;
+  font-family: "Inter", serif;
+  font-weight: 400;
+  margin-top: 2rem;
+}
+.results {
+  font-size: 1rem;
+  text-transform: uppercase;
+}
+@media (max-width: 767px){
+  .title{
+    font-size: 3rem;
+    word-break: break-word;
+  }
+}

@@ -1,0 +1,160 @@
+.authorInfo {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+.authorInfo,
+.publishedContainer,
+.shareContainer {
+  margin-bottom: 1.8rem;
+}
+.imageWrapper {
+  width: 10rem;
+  height: 12rem;
+  display: block;
+  position: relative;
+  overflow: hidden;
+  clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
+}
+.image {
+  object-fit: cover;
+}
+.loading {
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  z-index: 2;
+  border-radius: 25px;
+  background-color: rgba(209, 213, 219, 0.57);
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+@keyframes pulse {
+  50% {
+    opacity: 0.5;
+  }
+}
+.authorName {
+  text-transform: capitalize;
+  font-size: 24px;
+  font-weight: 500;
+}
+.publishedContainer,
+.shareContainer {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  font-size: 1rem;
+  font-weight: 500;
+}
+.publishedContainer div:first-child,
+.shareContainer div:first-child {
+  min-width: 150px;
+}
+.shareContainer {
+  flex-wrap: wrap;
+  row-gap: 1rem;
+}
+.icon {
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+  fill: var(--bg-primary);
+  transition: opacity 0.5s ease-in-out;
+}
+.iconEmail {
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  fill: var(--bg-secondary);
+  transition: opacity 0.5s ease-in-out;
+}
+.icon:hover {
+  opacity: 0.7;
+}
+.shareMobile,
+.shareDesktop {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+}
+.shareMobile {
+  display: none;
+}
+.shareDesktop .icon {
+  fill: var(--bg-secondary);
+}
+.shareMobile .iconEmail {
+  fill: var(--bg-primary);
+}
+
+.tags {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  font-size: 0.8rem;
+}
+.item:hover {
+  opacity: 0.7;
+}
+.item {
+  transition: opacity 0.3s ease-in-out;
+}
+@media (min-width: 767px) and (max-width: 980px) {
+  .imageWrapper {
+    width: 6rem;
+    height: 8rem;
+  }
+  .authorName {
+    font-size: 20px;
+  }
+  .publishedContainer,
+  .shareContainer {
+    font-size: 0.8rem;
+  }
+  .publishedContainer div:first-child, .shareContainer div:first-child{
+    min-width: 100px;
+  }
+  .icon {
+    height: 1.4rem;
+    width: 1.4rem;
+  }
+  .iconEmail{
+    height: 1.6rem;
+    width: 1.6rem;
+  }
+}
+@media (max-width: 767px) {
+  .publishedContainer div:first-child, .shareContainer div:first-child{
+    min-width: 100px;
+  }
+  .authorInfo {
+    display: none;
+  }
+  .publishedContainer {
+    display: none;
+  }
+  .shareContainer {
+    justify-content: space-between;
+  }
+  .shareDesktop {
+    display: none;
+  }
+  .shareMobile {
+    display: flex;
+  }
+  .shareMobile .icon{
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+  .shareMobile .iconEmail{
+    width: 1.7rem;
+    height: 1.7rem;
+  }
+}
