@@ -12,9 +12,7 @@ export async function fetchAPI(
   if (!isEmpty(authToken)) {
     headers["Authorization"] = `Bearer ${authToken}`;
   }
-  console.log('bodyyy pro postman',{
-    query, variables
-  })
+
   //WPGraphql Plugin must be enabled
   const res = await fetch(API_URL, {
     headers,

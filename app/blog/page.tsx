@@ -12,10 +12,10 @@ export default async function Blog() {
         <div className="h-12"></div>
 
         <div className="grid md:grid-cols-2 grid-cols-1 lg:gap-32 gap-8">
-          {data.posts.edges.map(({node}: any, i: any) => (
+          {data.map(({node}: any, i: any) => (
             <div key={i}>
               <Link href={`/posts/${node.slug}`}>
-              {node.title}
+              {node.title}: [{i}]
               </Link>
             </div>
           ))}
