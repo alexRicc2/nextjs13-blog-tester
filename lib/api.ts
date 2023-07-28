@@ -1,6 +1,3 @@
-import fs from "fs";
-import { join } from "path";
-import matter from "gray-matter";
 import { isEmpty} from 'lodash';
 const API_URL =
   `${process.env.WORDPRESS_API_URL}/graphql` ;
@@ -35,78 +32,4 @@ export async function fetchAPI(
   }
   return json.data
   
-}
-const postsDirectory = join(process.cwd(), "_posts");
-
-export function getPostSlugs() {
-  return fs.readdirSync(postsDirectory);
-}
-
-export async function getPostTest(slug: string | undefined | string[]){
-  const data = await fetchAPI(`query PostBySlug($id: ID!, $idType: PostIdType!){
-    post(id: $id, idType: $idType){
-      title
-    } 
-  }`,
-  {
-    variables: {
-      id: slug,
-      idType: "SLUG",
-    },
-  })
-
-  console.log('data na api back', data)
-  return data
-}
-
-
-export function getPostBySlug(slug: string, fields: string[] = []) {
-  const realSlug = slug.replace(/\.md$/, "");
-  const fullPath = join(postsDirectory, `${realSlug}.md`);
-  const fileContents = fs.readFileSync(fullPath, "utf8");
-  const { data, content } = matter(fileContents);
-
-  type Items = {
-    [key: string]: string;
-  };
-
-  const items: Items = {};
-
-  // Ensure only the minimal needed data is exposed
-  fields.forEach((field) => {
-    if (field === "slug") {
-      items[field] = realSlug;
-    }
-    if (field === "content") {
-      items[field] = content;
-    }
-
-    if (typeof data[field] !== "undefined") {
-      items[field] = data[field];
-    }
-  });
-
-  return items;
-}
-export async function getPosts(){
-  const data = await fetchAPI(`
-  query Get_POSTS{
-    posts(first: 1000){
-      edges{
-        node{
-          title
-          slug
-        }
-      }
-    }
-  }`)
-  return data
-}
-export function getAllPosts(fields: string[] = []) {
-  const slugs = getPostSlugs();
-  const posts = slugs
-    .map((slug) => getPostBySlug(slug, fields))
-    // sort posts by date in descending order
-    .sort((post1, post2) => (post1.date > post2.date ? -1 : 1));
-  return posts;
 }

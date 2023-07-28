@@ -1,6 +1,4 @@
-import { getPostBySlug, getPostTest } from "../../../lib/api";
-import markdownToHtml from "../../../lib/markdownToHtml";
-import markdownStyles from "./markdown-styles.module.css";
+import {  getPostTest } from "../../../lib/queries/Post/getPostTest";
 
 export default async function Post({ params }: { params: { slug: string } }) {
   // const post = getPostBySlug(params.slug, ["title", "author", "content"]);

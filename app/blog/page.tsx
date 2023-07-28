@@ -1,5 +1,4 @@
-import { getAllPosts, getPosts } from "../../lib/api";
-import PostPreview from "../../components/PostPreview";
+import { getPosts } from "../../lib/queries/Post/getPostss";
 import Link from "next/link";
 
 export default async function Blog() {
