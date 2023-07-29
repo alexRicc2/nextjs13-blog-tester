@@ -1,7 +1,7 @@
 "use client"
 
 import Image from "next/image";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 import Head from "next/head";
 import Container from "../ui/container";
 import LineButton from "../ui/LineButton";
@@ -50,9 +50,7 @@ export default function Post({ post, posts, relatedPosts }: any) {
       </Head>
 
       <div>
-        {router.isFallback ? (
-          <Container>Loading…</Container>
-        ) : (
+     
           <div style={{overflow: "hidden"}}>
             <div className={s.root}>
               <Container className={s.header}>
@@ -209,7 +207,7 @@ export default function Post({ post, posts, relatedPosts }: any) {
               {posts && <MorePosts posts={posts} />}
             </div>
           </div>
-        )}
+        
       </div>
     </>
   );

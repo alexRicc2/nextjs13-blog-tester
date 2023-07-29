@@ -1,6 +1,6 @@
 import s from "./PostInfo.module.css";
 import cn from "clsx";
-import { useRouter } from "next/router";
+import { usePathname, useRouter } from "next/navigation";
 import Image from "next/image";
 import { ConvertDateToNumber } from "../../utils/convertDate";
 import {
@@ -19,7 +19,7 @@ import Email from "../Icons/Email";
 import { useInView } from "react-intersection-observer";
 const PostInfo = ({ PostInfo, className }: any) => {
   const rootClassName = cn(s.root, className);
-  const { asPath } = useRouter();
+  const pathname = usePathname();
   const [viewsCount, setViewsCount] = useState(0);
   const [loading, setLoading] = useState(true);
   const [loadingImage, setLoadingImage] = useState(true);
@@ -50,7 +50,7 @@ const PostInfo = ({ PostInfo, className }: any) => {
       ? window.location.origin
       : "";
 
-  const URL = `${origin}${asPath}`;
+  const URL = `${origin}${pathname}`;
   const isAuthorHaveFullName =
     PostInfo?.author?.node?.firstName && PostInfo?.author?.node?.lastName;
   const name = isAuthorHaveFullName
