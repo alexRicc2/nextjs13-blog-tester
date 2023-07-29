@@ -1,3 +1,4 @@
+"use client"
 import Link from "next/link";
 import Container from "../ui/container";
 import s from "./footer.module.css";

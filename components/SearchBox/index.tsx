@@ -1,4 +1,6 @@
-import { useRouter } from "next/router";
+"use client"
+
+import { useRouter } from "next/navigation";
 import s from "./Search.module.css";
 import { useState } from "react";
 import Container from "../ui/container";

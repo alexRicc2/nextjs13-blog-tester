@@ -1,10 +1,12 @@
 .container {
   max-width: 1600px;
-  padding: 0 3.54167vw;
+  padding-left: 3.54167vw;
+  padding-right: 3.54167vw;
   margin: auto;
 }
 @media screen and (max-width: 767px) {
   .container {
-    padding: 0 9.6vw;
+    padding-left: 9.6vw;
+    padding-right: 9.6vw;
   }
 }

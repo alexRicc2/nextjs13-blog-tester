@@ -1,35 +1,24 @@
 import Link from "next/link";
+import { getPageContent } from "../lib/queries/Page/getPageContent";
+import FeaturedPost from "../components/FeaturedPost";
+import PostsSection from "../components/PostsSection";
+import EmphasisPost from "../components/EmphasisPost";
+import CategoriesSection from "../components/CategoriesSection";
+import Pagination from "../components/Pagination";
 
-export default function Home() {
-  // const posts = getAllPosts(["title", "date", "excerpt", "coverImage", "slug"]);
-  // const recentPosts = posts.slice(0, 2);
-
+export default async function Home() {
+  const pageData = await getPageContent();
+  // console.log('homepageseo', homePageDataSeo)
   return (
-    <div className="container mx-auto px-5">
-      <main>
-        <div className="space-y-4">
-          <h1 className="text-center text-5xl">NextJS 13 Blog</h1>
-          <p className="text-center text-xl">
-            Welcome to a dynamic markdown blog using NextJS 13.
-          </p>
-        </div>
-
-        <div className="h-12"></div>
-
-        <div className="h-16"></div>
-
-        <p className="text-3xl mb-6">Recent Posts</p>
-        <div className="grid md:grid-cols-2 grid-cols-1 mx-auto md:gap-32 gap-8">
-          
-        </div>
-        <div className="h-16"></div>
-        <Link
-          href="/blog"
-          className="text-3xl hover:text-gray-300 hover:underline"
-        >
-          Read More{" -> "}
-        </Link>
-      </main>
+    <div >
+     
+     <FeaturedPost posts={pageData.section1.posts} />
+      <PostsSection data={pageData.section2} />
+      <EmphasisPost data={pageData.section3} />
+      <PostsSection data={pageData.section4} />
+      <PostsSection data={pageData.section5} />
+      <CategoriesSection data={pageData.section6} />
+      {/* <Pagination pagesCount={pagesCount} root /> */}
     </div>
   );
 }

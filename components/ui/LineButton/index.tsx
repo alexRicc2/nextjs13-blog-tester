@@ -1,3 +1,4 @@
+"use client"
 import { ReactNode, useState } from "react";
 import s from "./LineButton.module.css";
 import cn from "clsx";

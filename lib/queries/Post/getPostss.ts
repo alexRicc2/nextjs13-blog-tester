@@ -22,7 +22,7 @@ export async function getPosts() {
       }
     }
   }`)
-  console.log('data', data.posts.edges)
+  // console.log('data', data.posts.edges)
   const posts = [...data.posts.edges, ...posts2.posts.edges]
   // console.log("data lenght", data.posts.edges.lenght)
   return posts;

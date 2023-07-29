@@ -1,3 +1,5 @@
+"use client"
+
 import Link from "next/link";
 import { useInView } from "react-intersection-observer";
 import Image from "next/image";

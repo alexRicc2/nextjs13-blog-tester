@@ -1,3 +1,4 @@
+"use client"
 import Container from "../ui/container";
 import s from "./Hero.module.css";
 import { useInView } from "react-intersection-observer";

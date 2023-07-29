@@ -1,3 +1,5 @@
+"use client"
+
 import PostCard from "../PostCard";
 import LineButton from "../ui/LineButton";
 import Container from "../ui/container";
