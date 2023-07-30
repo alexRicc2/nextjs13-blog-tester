@@ -7,8 +7,8 @@ const WPPAGE = ({ pageData }: any) => {
   const page = pageData?.page ?? {};
   return (
     <>
-      <Seo seo={page?.seo} uri={page?.slug} />
-      <Head>
+      {/* <Seo seo={page?.seo} uri={page?.slug} /> */}
+      {/* <Head>
         {page?.seo?.schemaDetails && (
           <script
             type="application/ld+json"
@@ -19,7 +19,7 @@ const WPPAGE = ({ pageData }: any) => {
             }}
           />
         )}
-      </Head>
+      </Head> */}
       <Container className={s.root}>
         <h1 className={s.title}>{page?.title}</h1>
         <div

@@ -35,8 +35,8 @@ export default function Post({ post, posts, relatedPosts }: any) {
 
   return (
     <>
-      <Seo seo={post?.seo} uri={post?.slug} />
-      <Head>
+      {/* <Seo seo={post?.seo} uri={post?.slug} /> */}
+      {/* <Head>
         {post?.seo?.schemaDetails && (
           <script
             type="application/ld+json"
@@ -47,7 +47,7 @@ export default function Post({ post, posts, relatedPosts }: any) {
             }}
           />
         )}
-      </Head>
+      </Head> */}
 
       <div>
      

@@ -1,9 +1,22 @@
 import WPPAGE from "../../components/WPPage";
 import { getPageData } from "../../lib/queries/Page/getPageData";
 import { getPostAndMorePosts } from "../../lib/queries/Post/getPostAndMorePosts";
-import { getPostTest } from "../../lib/queries/Post/getPostTest";
 import transformContentUrls from "../../utils/transformContentURLs";
 import Post from "../../components/Post";
+import { getAllPostsWithSlug } from "../../lib/queries/Post/getAllPostsWithSlug";
+import { getPages } from "../../lib/queries/Page/getPages";
+
+  export async function generateStaticParams() {
+    const allPosts = await getAllPostsWithSlug();
+    const allPages = await getPages();
+
+    const allPostsPaths = allPosts.map(({ post }: any) => {return {slug: post.slug}}) || [];
+    const allPagesPaths = allPages.map(({ page }: any) => {return {slug: page.slug}}) || [];
+
+    const allPaths = [...allPostsPaths, ...allPagesPaths];
+    return allPaths
+  }
+
 
 export default async function Page({ params }: { params: { slug: string } }) {
   const data = await getPostAndMorePosts(params?.slug, false, null);
@@ -18,6 +31,8 @@ export default async function Page({ params }: { params: { slug: string } }) {
   const relatedPosts = data?.relatedPosts ?? null
 
   const isPost = data?.post !== undefined;
+
+
 
   return (
     <div>
