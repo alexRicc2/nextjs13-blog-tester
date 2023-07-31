@@ -4,7 +4,7 @@ export async function getAllPostsWithSlug() {
   const data = await fetchAPI(
     `
     {
-      posts(first: 500) {
+      posts(first: 10) {
         edges {
           post: node {
             slug
