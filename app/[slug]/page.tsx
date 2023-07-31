@@ -10,10 +10,10 @@ import { getPages } from "../../lib/queries/Page/getPages";
     const allPosts = await getAllPostsWithSlug();
     const allPages = await getPages();
 
-    const allPostsPaths = allPosts.map(({ post }: any) => {return {slug: post.slug}}) || [];
-    const allPagesPaths = allPages.map(({ page }: any) => {return {slug: page.slug}}) || [];
+    const allPostsPaths = allPosts.map(({ post }: any) => {return {slug: post.slug}});
+    // const allPagesPaths = allPages.map(({ page }: any) => {return {slug: page.slug}});
 
-    const allPaths = [...allPostsPaths, ...allPagesPaths];
+    const allPaths = [...allPostsPaths];
     return allPaths
   }
 
