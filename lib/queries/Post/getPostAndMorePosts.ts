@@ -15,7 +15,7 @@ export async function getPostTest(slug: string | undefined | string[]) {
       },
     }
   );
-
+    console.log("return do fetchApi", data)
   return data;
 }
 
@@ -112,27 +112,7 @@ export async function getPostAndMorePosts(
             sourceUrl
           }
         }
-        ${
-          // Only some of the fields of a revision are considered as there are some inconsistencies
-          isRevision
-            ? `
-        revisions(first: 1, where: { orderby: { field: MODIFIED, order: DESC } }) {
-          edges {
-            node {
-              title
-              excerpt
-              content
-              author {
-                node {
-                  ...AuthorFields
-                }
-              }
-            }
-          }
-        }
-        `
-            : ""
-        }
+        
       }
       posts(first: 5, where: { orderby: { field: DATE, order: DESC } }) {
         edges {
@@ -171,13 +151,13 @@ export async function getPostAndMorePosts(
 
   // Draft posts may not have an slug
   if (isDraft) data.post.slug = postPreview.id;
-  // Apply a revision (changes in a published post)
-  if (isRevision && data.post.revisions) {
-    const revision = data.post.revisions.edges[0]?.node;
+  // // Apply a revision (changes in a published post)
+  // if (isRevision && data.post.revisions) {
+  //   const revision = data.post.revisions.edges[0]?.node;
 
-    if (revision) Object.assign(data.post, revision);
-    delete data.post.revisions;
-  }
+  //   if (revision) Object.assign(data.post, revision);
+  //   delete data.post.revisions;
+  // }
 
   // Filter out the main post
   data.posts.edges = data.posts.edges.filter(

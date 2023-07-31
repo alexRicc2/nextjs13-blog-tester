@@ -8,7 +8,7 @@ const AuthorInfo = ({ author }: any) => {
   const numberOfPosts = author?.user?.posts?.pageInfo?.offsetPagination?.total;
   const router = useRouter();
   const isUltatelAuthor = author?.user?.firstName === "ULTATEL";
-  console.log("author", author);
+  // console.log("author", author);
   return (
     <div  className={s.root}>
       <Container>
